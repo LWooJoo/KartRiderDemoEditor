@@ -75,6 +75,7 @@
             this.menuProfileSave.Name = "menuProfileSave";
             this.menuProfileSave.Size = new System.Drawing.Size(107, 20);
             this.menuProfileSave.Text = "프로필 저장하기";
+            this.menuProfileSave.Click += new System.EventHandler(this.menuProfileSave_Click);
             // 
             // panelProfileMain
             // 

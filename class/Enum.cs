@@ -7,7 +7,7 @@ namespace KartRiderDemoEditor
 {
 	static class Enum
 	{
-        public static const string[,] KART_TYPE = new string[,] 
+        public static string[,] KART_TYPE = new string[,] 
         { 
             {"practice1", "연습카트"},
 
@@ -54,7 +54,7 @@ namespace KartRiderDemoEditor
             return -1;
         }
 
-        public static const string[,] CHAR_TYPE = new string[,] 
+        public static string[,] CHAR_TYPE = new string[,] 
         { 
             {"dao", "다오"},
             {"dizni", "디지니"},
@@ -80,7 +80,7 @@ namespace KartRiderDemoEditor
             return -1;
         }
 
-        public static const string[,] COLOR_TYPE = new string[,] 
+        public static string[,] COLOR_TYPE = new string[,] 
         { 
             {"0", "빨강", "FF0000"},
             {"1", "노랑", "FFFF00"},
