@@ -7,15 +7,6 @@ namespace KartRiderDemoEditor
 {
     class RiderProfile
     {
-        private string nickName;
-        private string charType;
-        private string kartType;
-        private int charColor;
-        private short unknownValue1;
-        private int modeClear;
-        private int unknownValue2;
-        private short unknownValue3;
-
         public string NickName { get; set; }
         public string CharType { get; set; }
         public string KartType { get; set; }
@@ -27,14 +18,14 @@ namespace KartRiderDemoEditor
 
         private void init()
         {
-            nickName = "";
-            charType = "";
-            kartType = "";
-            charColor = 0;
-            unknownValue1 = 0;
-            modeClear = 0;
-            unknownValue2 = 0;
-            unknownValue3 = 0;
+            NickName = "";
+            CharType = "";
+            KartType = "";
+            CharColor = 0;
+            UnknownValue1 = 0;
+            ModeClear = 0;
+            UnknownValue2 = 0;
+            UnknownValue3 = 0;
         }
 
         public RiderProfile()
@@ -49,14 +40,14 @@ namespace KartRiderDemoEditor
             {
                 Random r = new Random();
 
-                nickName = "에디터" + r.Next(1000, 9999).ToString();
-                charType = Enum.CHAR_TYPE[r.Next(0, Enum.CHAR_TYPE.GetLength(0) - 1), 0];
-                kartType = Enum.KART_TYPE[r.Next(0, Enum.KART_TYPE.GetLength(0) - 1), 0];
-                charColor = Int32.Parse(Enum.COLOR_TYPE[r.Next(0, Enum.COLOR_TYPE.GetLength(0) - 1), 0]);
-                unknownValue1 = 0;
-                modeClear = 0;
-                unknownValue2 = 0;
-                unknownValue3 = 0;
+                NickName = "에디터" + r.Next(1000, 9999).ToString();
+                CharType = Enum.CHAR_TYPE[r.Next(0, Enum.CHAR_TYPE.GetLength(0) - 1), 0];
+                KartType = Enum.KART_TYPE[r.Next(0, Enum.KART_TYPE.GetLength(0) - 1), 0];
+                CharColor = Int32.Parse(Enum.COLOR_TYPE[r.Next(0, Enum.COLOR_TYPE.GetLength(0) - 1), 0]);
+                UnknownValue1 = 0;
+                ModeClear = 0;
+                UnknownValue2 = 0;
+                UnknownValue3 = 0;
             }
             else
             {
@@ -66,14 +57,14 @@ namespace KartRiderDemoEditor
 
         public RiderProfile(RiderProfile copy)
         {
-            nickName = copy.nickName;
-            charType = copy.charType;
-            kartType = copy.kartType;
-            charColor = copy.charColor;
-            unknownValue1 = copy.unknownValue1;
-            modeClear = copy.modeClear;
-            unknownValue2 = copy.unknownValue2;
-            unknownValue3 = copy.unknownValue3;
+            NickName = copy.NickName;
+            CharType = copy.CharType;
+            KartType = copy.KartType;
+            CharColor = copy.CharColor;
+            UnknownValue1 = copy.UnknownValue1;
+            ModeClear = copy.ModeClear;
+            UnknownValue2 = copy.UnknownValue2;
+            UnknownValue3 = copy.UnknownValue3;
         }
     }
 }
