@@ -1,8 +1,13 @@
 # 카트라이더 데모 에디터
+<img src="https://user-images.githubusercontent.com/22577959/66453528-9c084c80-ea9f-11e9-8557-192d37bf9fdd.png" width="200">
+
 카트라이더 데모 에디터는 카트라이더 데모 버전의 답답함을 없애고 즐겜을 위해 만들어진 도구입니다. 과연 지금도 카트라이더 데모 버전을 잠시나마 즐기는 이들이 있을까요?
 
 만든이. 스마트석(smartse0k)
-- [js940922@gmail.com] 또는 [smartse0k@naver.com]
+- js940922@gmail.com 또는 smartse0k@naver.com
+
+# 다운로드
+[여기를 클릭하여 Release 탭으로 이동하기](https://github.com/smartse0k/KartRiderDemoEditor/releases/tag/v1.0)
 
 # 기능
 ### 데이터 에디터
