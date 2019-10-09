@@ -50,16 +50,48 @@ namespace KartRiderDemoEditor
             checkMission2.CheckedChanged += profileData_Changed;
         }
 
-        // 프로필 저장하기
-        private void saveProfileToFile()
+        // 세이브 경로 가져오기
+        private string getSaveFilePath()
         {
             string documentRoot = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string filePath = documentRoot + @"\카트라이더\라이더데이터\riderData.1s";
 
-            FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+            if(System.IO.File.Exists(filePath)) 
+            {
+                return filePath;
+            }
 
+            documentRoot = Application.StartupPath;
+            filePath = documentRoot + @"\riderData.1s";
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return filePath;
+            }
+
+            return null;
+        }
+
+        // 프로필 저장하기
+        private void saveProfileToFile()
+        {
             // 프로필 개수
             int profileCount = riderProfiles.Count;
+
+            if (profileCount == 0) 
+            {
+                MessageBox.Show("저장하려는 내용이 없습니다.");
+                return;
+            }
+
+            string filePath = getSaveFilePath();
+            if(filePath == null) 
+            {
+                MessageBox.Show("프로필 파일이 저장될 위치가 없습니다.\n카트라이더 데모를 실행하여 캐릭터를 만든 이후에 진행하시고\n같은 문제 계속시 문의 바랍니다.");
+                return;
+            }
+
+            FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write);
             writeIntToFs(fs, profileCount);
 
             for (int i = 0; i < profileCount; i++)
@@ -122,8 +154,12 @@ namespace KartRiderDemoEditor
         {
             isLoading = true;
 
-            string documentRoot = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string filePath = documentRoot + @"\카트라이더\라이더데이터\riderData.1s";
+            string filePath = getSaveFilePath();
+            if (filePath == null)
+            {
+                MessageBox.Show("저장된 프로필 파일을 찾을 수 없습니다.\n카트라이더 데모를 실행하여 캐릭터를 만든 이후에 진행하시고\n같은 문제 계속시 문의 바랍니다.");
+                return;
+            }
 
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             fs.Seek(0, SeekOrigin.Begin);
@@ -131,6 +167,7 @@ namespace KartRiderDemoEditor
             int profileCount = readIntFromFs(fs);
 
             comboProfle.Items.Clear();
+            riderProfiles.Clear();
 
             for (int i = 0; i < profileCount; i++)
             {
@@ -166,11 +203,11 @@ namespace KartRiderDemoEditor
             {
                 comboProfle.SelectedIndex = 0;
                 loadProfile(0);
-                panelProfileSub.Enabled = true;
+                panelProfileMain.Enabled = true;
             }
             else
             {
-                panelProfileSub.Enabled = false;
+                panelProfileMain.Enabled = false;
             }
 
             isLoading = false;
@@ -272,6 +309,45 @@ namespace KartRiderDemoEditor
         private void menuProfileSave_Click(object sender, EventArgs e)
         {
             saveProfileToFile();
+        }
+
+        private void buttonAddProfile_Click(object sender, EventArgs e)
+        {
+            RiderProfile profile = new RiderProfile(true); // 랜덤 프로필 생성
+            riderProfiles.Add(profile);
+            comboProfle.Items.Add(profile.NickName);
+
+            comboProfle.SelectedIndex = comboProfle.Items.Count - 1;
+
+            MessageBox.Show("프로필을 추가했습니다.");
+        }
+
+        private void buttonDeleteProfile_Click(object sender, EventArgs e)
+        {
+            int index = comboProfle.SelectedIndex;
+            if(index == -1) 
+            {
+                return;
+            }
+            if (riderProfiles.Count == 1) 
+            {
+                MessageBox.Show("마지막 남은 프로필이므로 삭제할 수 없습니다.");
+                return;
+            }
+
+            riderProfiles.RemoveAt(index);
+            comboProfle.Items.RemoveAt(index);
+
+            isLoading = true;
+            comboProfle.SelectedIndex = 0;
+            isLoading = false;
+
+            MessageBox.Show("프로필을 삭제했습니다.");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.gckom.com");
         }
     }
 }

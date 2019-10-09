@@ -46,7 +46,9 @@
             this.textNick = new System.Windows.Forms.TextBox();
             this.labelNick = new System.Windows.Forms.Label();
             this.comboProfle = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelProfile = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuTop.SuspendLayout();
             this.panelProfileMain.SuspendLayout();
             this.panelProfileSub.SuspendLayout();
@@ -83,10 +85,11 @@
             this.panelProfileMain.Controls.Add(this.buttonAddProfile);
             this.panelProfileMain.Controls.Add(this.panelProfileSub);
             this.panelProfileMain.Controls.Add(this.comboProfle);
-            this.panelProfileMain.Controls.Add(this.label1);
+            this.panelProfileMain.Controls.Add(this.labelProfile);
+            this.panelProfileMain.Enabled = false;
             this.panelProfileMain.Location = new System.Drawing.Point(12, 27);
             this.panelProfileMain.Name = "panelProfileMain";
-            this.panelProfileMain.Size = new System.Drawing.Size(420, 222);
+            this.panelProfileMain.Size = new System.Drawing.Size(420, 219);
             this.panelProfileMain.TabIndex = 1;
             // 
             // buttonDeleteProfile
@@ -97,6 +100,7 @@
             this.buttonDeleteProfile.TabIndex = 5;
             this.buttonDeleteProfile.Text = "삭제";
             this.buttonDeleteProfile.UseVisualStyleBackColor = true;
+            this.buttonDeleteProfile.Click += new System.EventHandler(this.buttonDeleteProfile_Click);
             // 
             // buttonAddProfile
             // 
@@ -106,6 +110,7 @@
             this.buttonAddProfile.TabIndex = 4;
             this.buttonAddProfile.Text = "추가";
             this.buttonAddProfile.UseVisualStyleBackColor = true;
+            this.buttonAddProfile.Click += new System.EventHandler(this.buttonAddProfile_Click);
             // 
             // panelProfileSub
             // 
@@ -119,7 +124,6 @@
             this.panelProfileSub.Controls.Add(this.labelChar);
             this.panelProfileSub.Controls.Add(this.textNick);
             this.panelProfileSub.Controls.Add(this.labelNick);
-            this.panelProfileSub.Enabled = false;
             this.panelProfileSub.Location = new System.Drawing.Point(3, 40);
             this.panelProfileSub.Name = "panelProfileSub";
             this.panelProfileSub.Size = new System.Drawing.Size(414, 179);
@@ -225,20 +229,44 @@
             this.comboProfle.TabIndex = 2;
             this.comboProfle.SelectedIndexChanged += new System.EventHandler(this.comboProfle_SelectedIndexChanged);
             // 
-            // label1
+            // labelProfile
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "프로필 선택";
+            this.labelProfile.AutoSize = true;
+            this.labelProfile.Location = new System.Drawing.Point(15, 19);
+            this.labelProfile.Name = "labelProfile";
+            this.labelProfile.Size = new System.Drawing.Size(69, 12);
+            this.labelProfile.TabIndex = 1;
+            this.labelProfile.Text = "프로필 선택";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.linkLabel1.Location = new System.Drawing.Point(10, 246);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(338, 11);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "만든이: 스마트석 (smartse0k@naver.com) at www.gckom.com";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(10, 262);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(396, 11);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "이 프로그램은 github(@smartse0k)에서 소스코드와 함께 배포되고 있습니다.";
             // 
             // formEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 250);
+            this.ClientSize = new System.Drawing.Size(444, 280);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.panelProfileMain);
             this.Controls.Add(this.menuTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -265,7 +293,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuProfileSave;
         private System.Windows.Forms.Panel panelProfileMain;
         private System.Windows.Forms.ComboBox comboProfle;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelProfile;
         private System.Windows.Forms.Panel panelProfileSub;
         private System.Windows.Forms.ComboBox comboChar;
         private System.Windows.Forms.Label labelChar;
@@ -279,6 +307,8 @@
         private System.Windows.Forms.CheckBox checkMission1;
         private System.Windows.Forms.Button buttonDeleteProfile;
         private System.Windows.Forms.Button buttonAddProfile;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
