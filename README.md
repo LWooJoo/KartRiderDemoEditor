@@ -12,8 +12,10 @@
 * 카트 변경
 * 색상 변경
 
+<!--
 ### 인게임 에디터
 * 무한부스터
+-->
 
 # 인-게임 스크린샷
 <img alt="In select characters scene" src="https://user-images.githubusercontent.com/22577959/66406421-8b67c000-ea26-11e9-8134-0b36dbcef94c.png" width="300">
