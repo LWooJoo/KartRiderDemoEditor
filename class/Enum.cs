@@ -66,7 +66,7 @@ namespace KartRiderDemoEditor
             {"kephi", "케피"},
             {"uni", "우니"},
             {"santa", "산타"},
-            {"lodumani", "로두마니"},
+            //{"lodumani", "로두마니"},
         };
 
         public static int getCharTypeIndex(string from)
