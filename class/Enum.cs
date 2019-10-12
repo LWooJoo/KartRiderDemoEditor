@@ -10,6 +10,7 @@ namespace KartRiderDemoEditor
         public static string[,] KART_TYPE = new string[,] 
         { 
             {"practice1", "연습카트"},
+            //{"mine1", "광산수레"},
 
             {"burst1", "버스트 C1"},
             {"burst2", "버스트 E2"},
@@ -44,7 +45,7 @@ namespace KartRiderDemoEditor
 
         public static int getKartTypeIndex(string from)
         {
-            for (int i = 0; i < KART_TYPE.Length; i++)
+            for (int i = 0; i < KART_TYPE.GetLength(0); i++)
             {
                 if (KART_TYPE[i, 0] == from || KART_TYPE[i, 1] == from) 
                 {
@@ -70,7 +71,7 @@ namespace KartRiderDemoEditor
 
         public static int getCharTypeIndex(string from)
         {
-            for (int i = 0; i < CHAR_TYPE.Length; i++)
+            for (int i = 0; i < CHAR_TYPE.GetLength(0); i++)
             {
                 if (CHAR_TYPE[i, 0] == from || CHAR_TYPE[i, 1] == from)
                 {
@@ -96,7 +97,7 @@ namespace KartRiderDemoEditor
 
         public static int getColorTypeIndex(string from)
         {
-            for (int i = 0; i < COLOR_TYPE.Length; i++)
+            for (int i = 0; i < COLOR_TYPE.GetLength(0); i++)
             {
                 if (COLOR_TYPE[i, 0] == from || COLOR_TYPE[i, 1] == from)
                 {
